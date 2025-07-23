@@ -1,5 +1,5 @@
 {
-  "name": "amazon-cognito-passwordless-auth",
+  "name": "@tonesingleton/amazon-cognito-passwordless-auth",
   "version": "0.15.0",
   "description": "Passwordless authentication with Amazon Cognito: FIDO2 (WebAuthn, support for Passkeys), Magic Link, SMS OTP Step Up",
   "keywords": [
@@ -19,8 +19,11 @@
     "url": "https://aws.amazon.com"
   },
   "repository": {
-    "url": "https://github.com/aws-samples/amazon-cognito-passwordless-auth",
+    "url": "https://github.com/tonesingleton/amazon-cognito-passwordless-auth",
     "type": "git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "main": "dist/client/index.js",
   "react-native": "dist/client/react/react-native.js",
