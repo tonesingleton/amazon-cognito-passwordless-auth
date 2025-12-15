@@ -79,7 +79,22 @@ export function currentBrowserLocationWithoutFragmentIdentifier() {
 
 export function removeFragmentIdentifierFromBrowserLocation() {
   const { history } = configure();
-  history.pushState("", "", currentBrowserLocationWithoutFragmentIdentifier());
+  const url = currentBrowserLocationWithoutFragmentIdentifier();
+
+  // Always pass an object as state to be compatible with Next.js
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const safeState: any = {};
+
+  try {
+    history.pushState(safeState, "", url);
+  } catch (e) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      history.replaceState(safeState, "", url);
+    } catch {
+      // eslint-disable-next-line no-console
+    }
+  }
 }
 
 export function timeAgo(now: Date, historicDate?: Date) {

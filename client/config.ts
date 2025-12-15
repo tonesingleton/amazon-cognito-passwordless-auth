@@ -262,6 +262,8 @@ export type MinimalFetch = (
 ) => Promise<MinimalResponse>;
 
 export interface MinimalHistory {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  replaceState(safeState: any, arg1: string, url: string): unknown;
   pushState(data: unknown, unused: string, url?: string | URL | null): void;
 }
 
